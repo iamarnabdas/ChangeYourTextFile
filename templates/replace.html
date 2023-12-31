@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Replace Words</title>
+</head>
+<body>
+    <form action="/replace" method="post">
+        <textarea type="text" name="file_content" rows="20" cols="60" value>
+            {{file_content}}
+        </textarea><br>
+        <input type="text" name="num_of_replacements" value="{{ num_of_replacements }}"><br>
+        {% for i in range(num_of_replacements) %}
+        <label for="original_word_{{ i }}">Word {{ i + 1 }} to replace:</label>
+        <input type="text" id="original_word_{{ i }}" name="original_word_{{ i }}"><br>
+        <label for="replacement_word_{{ i }}">Replacement for Word {{ i + 1 }}:</label>
+        <input type="text" id="replacement_word_{{ i }}" name="replacement_word_{{ i }}"><br>
+        {% endfor %}
+        <button type="submit">Replace</button>
+    </form>
+</body>
+</html>
